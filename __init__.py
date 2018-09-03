@@ -28,5 +28,7 @@ class jsonf(object):
         json_obj = {}
         if os.path.isfile(file_path):
             with open(file_path, "r", encoding=jsonf.__k_encoding) as file:
-                json_obj = jsonf.load_s(file.read())
+                file_contents = file.read()
+                if file_contents:
+                    json_obj = jsonf.load_s(file_contents)
         return json_obj
